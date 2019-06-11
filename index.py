@@ -1,7 +1,7 @@
 from tkinter import * # * tüm paremetleri kullanıcağımızı belirtmek için koyduk.
 import tkinter.messagebox
 import tkinter as tk
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 ###from final2.py import *
 
 girisbilgi = ["1", "1"]
