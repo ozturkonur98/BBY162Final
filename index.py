@@ -95,6 +95,7 @@ girb.pack(side=LEFT)
 
 def menu():
     p = Tk()
+    p.title("Kütüphane Otomasyonu")
     frame = Frame(p)
     frame.pack()
 
