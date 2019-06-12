@@ -1,7 +1,7 @@
 from tkinter import * # * tüm paremetleri kullanıcağımızı belirtmek için koyduk.
 import tkinter.messagebox
-import tkinter as tk
-from PIL import Image, ImageTk
+#import tkinter as tk
+#from PIL import Image, ImageTk
 ###from final2.py import *
 
 girisbilgi = ["1", "1"]
@@ -174,10 +174,9 @@ def kitap_ekle():
         Label(p1,bg="black",fg="orange", text='*Yayın Yılı :').grid(column=1, row=6)
 def kitap_kaydet():
 
-        sistem = str((" ◯◯ Kitap Adı : " +kitap_adi.get() + "    Yazar Adı : " + yazar_adi.get()+ "   Yayın Yılı : " + yy.get()) + "\n")
+        sistem = str((" ◯◯ Kitap Adı : " +kitap_adi.get() + "    Yazar Adı : " + yazar_adi.get()+ "   Yayın Yılı : " + yy.get()) + "\n\n")
         dosya = open("eserler.txt", "a", encoding="utf-8")
-        for x in sistem:
-            dosya.write(x)
+        dosya.write(sistem)
         dosya.close()
         print("KAYDEDİLDİ..")
         tkinter.messagebox.showinfo("BİLGİ", "ESER KAYDEDİLDİ..", command= p1.destroy())
@@ -204,10 +203,9 @@ def üyeekle():
     Label(p1, bg="black", fg="orange", text='*Üye No: ').grid(column=1, row=3)
     Label(p1, bg="black", fg="orange", text='*Üye Yaş :').grid(column=1, row=6)
 def üyekaydet():
-    sistem = str((" ◯◯ Üyenin Adı Soyadı:" + üyeadisoyadi.get() + "   Üye Kayıt No:" + üyeno.get() + "   Üyenin Yaşı:" + üyeyaş.get()) + "\n")
+    sistem = str((" ◯◯ Üyenin Adı Soyadı:" + üyeadisoyadi.get() + "   Üye Kayıt No:" + üyeno.get() + "   Üyenin Yaşı:" + üyeyaş.get()) + "\n\n")
     dosya = open("üyeler.txt", "a", encoding="utf-8")
-    for x in sistem:
-        dosya.write(x)
+    dosya.write(sistem)
     dosya.close()
     print("KAYDEDİLDİ")
     tkinter.messagebox.showinfo("BİLGİ", "ÜYE KAYDEDİLDİ..")
