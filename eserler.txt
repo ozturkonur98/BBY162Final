@@ -1,1 +1,4 @@
-﻿Kitap Adı:Gelincik-Yazar Adı:Ali-Yayın Yılı:2000
+ ◯◯ Kitap Adı : 1984  Yazar Adı : George Orwell  Yayın Yılı : 2017
+ ◯◯ Kitap Adı : Suç ve Ceza Yazar Adı : Fyodor Mihayloviç Dostoyevski Yayın Yılı : 2017
+ ◯◯ Kitap Adı : Kürk Mantolu Madonna Yazar Adı : Sabahattin Ali Yayın Yılı : 2018
+ ◯◯ Kitap Adı : Gazap Üzümleri Yazar Adı : John Steinbeck Yayın Yılı : 2017
