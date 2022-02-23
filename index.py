@@ -42,7 +42,7 @@ def gir():
         tkinter.messagebox.showinfo("BHKS 1.0", "Başarıyla Giriş Yapıldı.")
 
 
-    elif kadi == girisbilgi[0] and sifre != girisbilgi[ 1]:
+    elif kadi == girisbilgi[0]:
         print("Şifreyi hatalı girdiniz.")
         tkinter.messagebox.showerror("BHKS 1.0", "Bilgileriniz yanlış. Tekrar deneyiniz!")
 
@@ -174,12 +174,17 @@ def kitap_ekle():
         Label(p1,bg="black",fg="orange", text='*Yayın Yılı :').grid(column=1, row=6)
 def kitap_kaydet():
 
-        sistem = str((" ◯◯ Kitap Adı : " +kitap_adi.get() + "    Yazar Adı : " + yazar_adi.get()+ "   Yayın Yılı : " + yy.get()) + "\n\n")
-        dosya = open("eserler.txt", "a", encoding="utf-8")
+    sistem = str(
+        f' ◯◯ Kitap Adı : {kitap_adi.get()}    Yazar Adı : {yazar_adi.get()}'
+        + "   Yayın Yılı : "
+        + yy.get()
+        + "\n\n"
+    )
+
+    with open("eserler.txt", "a", encoding="utf-8") as dosya:
         dosya.write(sistem)
-        dosya.close()
-        print("KAYDEDİLDİ..")
-        tkinter.messagebox.showinfo("BİLGİ", "ESER KAYDEDİLDİ..", command= p1.destroy())
+    print("KAYDEDİLDİ..")
+    tkinter.messagebox.showinfo("BİLGİ", "ESER KAYDEDİLDİ..", command= p1.destroy())
 def üyeekle():
     global üyeadisoyadi, üyeno, üyeyaş, p1
     p1 = Tk()
@@ -203,19 +208,24 @@ def üyeekle():
     Label(p1, bg="black", fg="orange", text='*Üye No: ').grid(column=1, row=3)
     Label(p1, bg="black", fg="orange", text='*Üye Yaş :').grid(column=1, row=6)
 def üyekaydet():
-    sistem = str((" ◯◯ Üyenin Adı Soyadı:" + üyeadisoyadi.get() + "   Üye Kayıt No:" + üyeno.get() + "   Üyenin Yaşı:" + üyeyaş.get()) + "\n\n")
-    dosya = open("üyeler.txt", "a", encoding="utf-8")
-    dosya.write(sistem)
-    dosya.close()
+    sistem = str(
+        f' ◯◯ Üyenin Adı Soyadı:{üyeadisoyadi.get()}   Üye Kayıt No:'
+        + üyeno.get()
+        + "   Üyenin Yaşı:"
+        + üyeyaş.get()
+        + "\n\n"
+    )
+
+    with open("üyeler.txt", "a", encoding="utf-8") as dosya:
+        dosya.write(sistem)
     print("KAYDEDİLDİ")
     tkinter.messagebox.showinfo("BİLGİ", "ÜYE KAYDEDİLDİ..")
 def eserlist():
     p = Tk()
     ebaslık = p.title("KAYITLI ESERLER")
     p.configure(background="black")
-    file = open("eserler.txt", "r", encoding='utf8')
-    data = file.read()
-    file.close()
+    with open("eserler.txt", "r", encoding='utf8') as file:
+        data = file.read()
     eser_liste = Label(p, text=data, fg="yellow", bg="black",justify=CENTER)
     eser_liste.pack()
     totaleser = Button(p, text="TOPLAM KAYITLI ESERLER",justify=CENTER, command=esersayi)
@@ -230,9 +240,8 @@ def uyelist():
     p = Tk()
     üyebaslık = p.title("KAYITLI ÜYELER")
     p.configure(background="black")
-    file = open("üyeler.txt", "r", encoding='utf8')
-    data = file.read()
-    file.close()
+    with open("üyeler.txt", "r", encoding='utf8') as file:
+        data = file.read()
     üye_liste = Label(p, text=data, fg="yellow", bg="black",justify=CENTER)
     üye_liste.pack()
     totalüye = Button(p, text="TOPLAM KAYITLI ÜYELERİMİZ",justify=CENTER, command=uyesayi)
@@ -243,17 +252,13 @@ def uyelist():
 def esersayi():
 
     teser = open('eserler.txt', "r", encoding="utf-8")
-    count = 0
-    for eser in teser:
-        count = count + 1
+    count = sum(1 for _ in teser)
     print('Toplam eser:', count)
     tkinter.messagebox.showinfo('Toplam eser:', count)
 def uyesayi():
 
     tüye = open('üyeler.txt', "r", encoding="utf-8")
-    count = 0
-    for üye in tüye:
-        count = count + 1
+    count = sum(1 for _ in tüye)
     print('Toplam üye:', count)
     tkinter.messagebox.showinfo('Toplam üye:', count)  #
 
